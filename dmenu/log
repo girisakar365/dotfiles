@@ -1,0 +1,13 @@
+patching file p1
+Hunk #1 FAILED at 2.
+1 out of 1 hunk FAILED -- saving rejects to file p1.rej
+patching file p1
+Hunk #1 FAILED at 40.
+1 out of 1 hunk FAILED -- saving rejects to file p1.rej
+patching file p1
+Hunk #1 FAILED at 95.
+Hunk #2 FAILED at 636.
+Hunk #3 FAILED at 662.
+Hunk #4 FAILED at 672.
+Hunk #5 FAILED at 734.
+5 out of 5 hunks FAILED -- saving rejects to file p1.rej

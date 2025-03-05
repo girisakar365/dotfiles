@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Directory where your wallpapers are stored
+WALLPAPER_DIR="$HOME/suckless/wallpapers"
+
+# List all image files in the directory (adjust file types if needed)
+wallpapers=$(find "$WALLPAPER_DIR" -type f \( -iname "*.jpg" -o -iname "*.png" -o -iname "*.jpeg" \))
+
+# Use dmenu to select a wallpaper
+selected_wallpaper=$(echo "$wallpapers" | dmenu -i -p "Select Wallpaper:")
+
+# If a wallpaper was selected, use feh to set it as the background
+if [ -n "$selected_wallpaper" ]; then
+    feh --bg-fill "$selected_wallpaper"
+fi
