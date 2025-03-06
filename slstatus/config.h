@@ -67,6 +67,6 @@ static const struct arg args[] = {
 	/* function format          argument */
 	{ wifi_perc, " Wifi: %sB/s | ",  "wlp6s0"},
 	{ run_command, "Volume: %s% | ", "~/suckless/slstatus/custom/vol_perc.sh" },
-	{ battery_perc, "Battery: %s% | ",  "BAT0"},
+	{ run_command, "%s | ",  "~/suckless/slstatus/custom/battery.sh"},
 	{ datetime, "%s",  "%a %d %b, %r"},
 };
