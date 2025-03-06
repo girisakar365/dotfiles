@@ -1,0 +1,3 @@
+#!/bin/bash
+
+st -e bash -c "nmcli -t -f SSID device wifi show; read -p 'Press enter to close...'"
