@@ -24,8 +24,8 @@ static const unsigned int alphas[SchemeLast][2] = {
 	[SchemeSel] = { OPAQUE, alpha },
 	[SchemeOut] = { OPAQUE, alpha },
 };
-static unsigned int lines      = 0;
-static unsigned int columns    = 0;
+static unsigned int lines      = 10;
+static unsigned int columns    = 1;
 
 /*
  * Characters not considered part of a word while deleting words
