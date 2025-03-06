@@ -240,7 +240,6 @@ static int xerror(Display *dpy, XErrorEvent *ee);
 static int xerrordummy(Display *dpy, XErrorEvent *ee);
 static int xerrorstart(Display *dpy, XErrorEvent *ee);
 static void zoom(const Arg *arg);
-void drawTab(int nwins, int first, Monitor *m);
 void altTabStart(const Arg *arg);
 static void altTabEnd();
 
@@ -747,18 +746,7 @@ drawbar(Monitor *m)
 	w = TEXTW(m->ltsymbol);
 	drw_setscheme(drw, scheme[SchemeNorm]);
 	x = drw_text(drw, x, 0, w, bh, lrpad / 2, m->ltsymbol, 0);
-
-	if ((w = m->ww - tw - x) > bh) {
-		if (m->sel) {
-			drw_setscheme(drw, scheme[m == selmon ? SchemeSel : SchemeNorm]);
-			drw_text(drw, x, 0, w - 2 * sp, bh, lrpad / 2, m->sel->name, 0);
-			if (m->sel->isfloating)
-				drw_rect(drw, x + boxs, boxs, boxw, boxw, m->sel->isfixed, 0);
-		} else {
-			drw_setscheme(drw, scheme[SchemeNorm]);
-			drw_rect(drw, x, 0, w - 2 * sp, bh, 1, 1);
-		}
-	}
+	
 	drw_map(drw, m->barwin, 0, 0, m->ww, bh);
 }
 
@@ -1721,7 +1709,6 @@ altTab()
 
 	/* redraw tab */
 	XRaiseWindow(dpy, selmon->tabwin);
-	drawTab(selmon->nTabs, 0, selmon);
 }
 
 void
@@ -1762,74 +1749,6 @@ altTabEnd()
 	XDestroyWindow(dpy, selmon->tabwin);
 }
 
-void
-drawTab(int nwins, int first, Monitor *m)
-{
-	/* little documentation of functions */
-	/* void drw_rect(Drw *drw, int x, int y, unsigned int w, unsigned int h, int filled, int invert); */
-	/* int drw_text(Drw *drw, int x, int y, unsigned int w, unsigned int h, unsigned int lpad, const char *text, int invert); */
-	/* void drw_map(Drw *drw, Window win, int x, int y, unsigned int w, unsigned int h); */
-
-	Client *c;
-	int h;
-
-	if (first) {
-		Monitor *m = selmon;
-		XSetWindowAttributes wa = {
-			.override_redirect = True,
-			.background_pixmap = ParentRelative,
-			.event_mask = ButtonPressMask|ExposureMask
-		};
-
-		selmon->maxWTab = maxWTab;
-		selmon->maxHTab = maxHTab;
-
-		/* decide position of tabwin */
-		int posX = selmon->mx;
-		int posY = selmon->my;
-		if (tabPosX == 0)
-			posX += 0;
-		if (tabPosX == 1)
-			posX += (selmon->mw / 2) - (maxWTab / 2);
-		if (tabPosX == 2)
-			posX += selmon->mw - maxWTab;
-
-		if (tabPosY == 0)
-			posY += selmon->mh - maxHTab;
-		if (tabPosY == 1)
-			posY += (selmon->mh / 2) - (maxHTab / 2);
-		if (tabPosY == 2)
-			posY += 0;
-
-		h = selmon->maxHTab;
-		/* XCreateWindow(display, parent, x, y, width, height, border_width, depth, class, visual, valuemask, attributes); just reference */
-		m->tabwin = XCreateWindow(dpy, root, posX, posY, selmon->maxWTab, selmon->maxHTab, 2, DefaultDepth(dpy, screen),
-								CopyFromParent, DefaultVisual(dpy, screen),
-								CWOverrideRedirect|CWBackPixmap|CWEventMask, &wa); /* create tabwin */
-
-		XDefineCursor(dpy, m->tabwin, cursor[CurNormal]->cursor);
-		XMapRaised(dpy, m->tabwin);
-
-	}
-
-	h = selmon->maxHTab  / m->nTabs;
-
-	int y = 0;
-	int n = 0;
-	for (int i = 0;i < m->nTabs;i++) { /* draw all clients into tabwin */
-		c = m->altsnext[i];
-		if(!ISVISIBLE(c)) continue;
-		/* if (HIDDEN(c)) continue; uncomment if you're using awesomebar patch */
-
-		n++;
-		drw_setscheme(drw, scheme[(c == m->sel) ? SchemeSel : SchemeNorm]);
-		drw_text(drw, 0, y, selmon->maxWTab, h, 0, c->name, 0);
-		y += h;
-	}
-
-	drw_setscheme(drw, scheme[SchemeNorm]);
-	drw_map(drw, m->tabwin, 0, 0, selmon->maxWTab, selmon->maxHTab);
-}
 
 void
 altTabStart(const Arg *arg)
@@ -1866,7 +1785,6 @@ altTabStart(const Arg *arg)
 				m->altsnext[listIndex++] = c;
 			}
 
-			drawTab(m->nTabs, 1, m);
 
 			struct timespec ts = { .tv_sec = 0, .tv_nsec = 1000000 };
 
