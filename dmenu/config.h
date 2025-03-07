@@ -10,7 +10,8 @@ static const int user_bh = 5;              /* -h option; minimum height of a men
 /* -fn option overrides fonts[0]; default X11 font or font set */
 static const char *fonts[] = {
 	"monospace:size=11",
-	"Noto Color Emoji:size=11"
+	"Noto Color Emoji:size=11",
+	"Font Awesome 6 Free:size=11"
 };
 static const char *prompt      = NULL;      /* -p  option; prompt to the left of input field */
 static const char *colors[SchemeLast][2] = {
