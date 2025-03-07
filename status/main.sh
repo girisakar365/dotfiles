@@ -18,5 +18,5 @@ vol_perc(){
 
 while :; do
     xsetroot -name "$(datetime) | $(vol_perc) | $(wifi) | $(battery)"
-    sleep 1
+    sleep 0.5
 done
