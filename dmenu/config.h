@@ -9,7 +9,8 @@ static const float menu_height_ratio = 4.0f;  /* This is the ratio used in the o
 static const int user_bh = 5;              /* -h option; minimum height of a menu line */
 /* -fn option overrides fonts[0]; default X11 font or font set */
 static const char *fonts[] = {
-	"monospace:size=10"
+	"monospace:size=11",
+	"Noto Color Emoji:size=11"
 };
 static const char *prompt      = NULL;      /* -p  option; prompt to the left of input field */
 static const char *colors[SchemeLast][2] = {
