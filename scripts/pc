@@ -1,0 +1,3 @@
+#!/bin/bash
+
+st -e bash -c "neofetch; read -p ''"
