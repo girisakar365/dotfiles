@@ -118,7 +118,7 @@ static const Key keys[] = {
     { 0, XF86XK_AudioMute, spawn, SHCMD("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle") },
 
 	// sleep / lock
-	{ MODKEY,                       XK_l,      spawn,           SHCMD("sleep") },
+	{ MODKEY,                       XK_l,      spawn,           SHCMD("lock") },
 
 
 	// tags
