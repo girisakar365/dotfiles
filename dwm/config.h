@@ -83,7 +83,7 @@ static const Key keys[] = {
 	{ MODKEY, 						XK_2, 	   spawn,	   SHCMD("firefox")}, 
 	{ MODKEY, 						XK_3, 	   spawn,	   SHCMD("code")}, 
 	{ MODKEY|ShiftMask, 			XK_s, 	   spawn,	   {.v = dmenucmd} }, 
-	{ MODKEY,                       XK_s,  spawn,      SHCMD("flameshot gui") },
+	{ MODKEY,                       XK_s,  	   spawn,      SHCMD("flameshot gui") },
 	{ MODKEY,            			XK_Return, spawn,      {.v = termcmd } },
 	{ MODKEY, 						XK_e, 	   spawn,	   SHCMD("st -e ranger")}, 
 	{ MODKEY, 						XK_b, 	   spawn,	   SHCMD("firefox")}, 
@@ -91,8 +91,8 @@ static const Key keys[] = {
 	
 	{ MODKEY|ShiftMask,             XK_b,      togglebar,      {0} },
 
-	{ MODKEY,                       XK_j,      setmfact,       {.f = -0.05} },
-	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
+	{ MODKEY|ShiftMask,				XK_j,      setmfact,       {.f = -0.05} },
+	{ MODKEY|ShiftMask,             XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,						XK_Tab,    view,           {0} },
 	{ MODKEY,             			XK_q,      killclient,     {0} },
 
@@ -100,11 +100,11 @@ static const Key keys[] = {
 	{ MODKEY,                    	XK_m,      setlayout,      {.v = &layouts[0]} }, // M
 	{ MODKEY,                    	XK_t,      setlayout,      {.v = &layouts[1]} }, // T
 	{ MODKEY,                    	XK_f,      setlayout,      {.v = &layouts[2]} }, // FF
-	{ MODKEY,                       XK_space,  	   setlayout,      {0} },
+	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	
-	{ ALTKEY,						XK_Tab,    altTabStart,           {0} },
+	{ ALTKEY,						XK_Tab,    altTabStart,    {0} },
     
 	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
 	
@@ -116,6 +116,10 @@ static const Key keys[] = {
 	{ 0, XF86XK_AudioRaiseVolume, spawn, SHCMD("volumeup") },
     { 0, XF86XK_AudioLowerVolume, spawn, SHCMD("volumedown") },
     { 0, XF86XK_AudioMute, spawn, SHCMD("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle") },
+
+	// sleep / lock
+	{ MODKEY,                       XK_l,      spawn,           SHCMD("sleep") },
+
 
 	// tags
 	TAGKEYS(                        XK_1,                      0)
