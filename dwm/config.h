@@ -106,6 +106,8 @@ static const Key keys[] = {
 	
 	{ ALTKEY,						XK_Tab,    altTabStart,           {0} },
     
+	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
+	
 	// brightness
 	{ 0, XF86XK_MonBrightnessUp,   spawn,  SHCMD("brightnessctl set +10%") },
     { 0, XF86XK_MonBrightnessDown, spawn,  SHCMD("brightnessctl set 10%-") },
@@ -134,7 +136,6 @@ static const Key keys[] = {
 	// { MODKEY,                       XK_l,      focusstack,     {.i = -1 } },
 	// { MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
 	// { MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
-	// { MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
 	// { MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	// { MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
 	// { MODKEY,                       XK_period, focusmon,       {.i = +1 } },
