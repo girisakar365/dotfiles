@@ -1,7 +1,7 @@
 #!/bin/bash
 
-current_volume=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2*10}' | sed 's/%//')
+current_volume=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2*100}' | sed 's/%//')
 
-if (( current_volume < 100 )); then
-    wpctl set-volume @DEFAULT_AUDIO_SINK@ .5+
+if (( current_volume < 150 )); then
+    wpctl set-volume @DEFAULT_AUDIO_SINK@ .05+
 fi
