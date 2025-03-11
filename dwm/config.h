@@ -59,7 +59,7 @@ static const Layout layouts[] = {
 #define ALTKEY Mod1Mask
 
 #define TAGKEYS(KEY,TAG) \
-	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
+	{ ALTKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
 	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
@@ -76,9 +76,9 @@ static const Key keys[] = {
 	/* modifier                     key        function        argument */
 
 	// spwan
-	{ ALTKEY, 						XK_1, 	   spawn,	   SHCMD("st -e ranger")}, 
-	{ ALTKEY, 						XK_2, 	   spawn,	   SHCMD("firefox")}, 
-	{ ALTKEY, 						XK_3, 	   spawn,	   SHCMD("code")}, 
+	{ MODKEY, 						XK_1, 	   spawn,	   SHCMD("st -e ranger")}, 
+	{ MODKEY, 						XK_2, 	   spawn,	   SHCMD("firefox")}, 
+	{ MODKEY, 						XK_3, 	   spawn,	   SHCMD("code")}, 
 	{ MODKEY, 						XK_s, 	   spawn,	   {.v = dmenucmd} }, 
 	{ MODKEY|ShiftMask,				XK_s,  	   spawn,      SHCMD("flameshot gui") },
 	{ MODKEY,            			XK_Return, spawn,      {.v = termcmd } },
