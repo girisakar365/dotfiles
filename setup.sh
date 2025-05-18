@@ -21,3 +21,14 @@ yay -S --needed visual-studio-code-bin
 yay -S --needed nerd-fonts-jetbrains-mono
 yay -S --needed nerd-fonts-hack
 yay -S --needed nerd-fonts-ubuntu-mono
+
+echo Making suckless softwares:
+cd dwm
+sudo make clean install
+cd ../dmenu
+sudo make clean install
+cd ../st
+sudo make clean install
+cd ../slock
+sudo make clean install
+cd ..
