@@ -1,4 +1,9 @@
 #!/bin/bash
+echo Moving necessary files
+echo touchpad config file moved!
+sudo cp conf/40-libinput.conf /etc/X11/xorg.conf.d/
+echo gestures config file moved!
+sudo cp conf/libinput-gestures.conf /etc/
 
 echo Installing default pkgs:
 sudo pacman -S --needed ttf-dejavu ttf-noto-nerd libxft libxinerama feh xdotool wmctrl brightnessctl upower
