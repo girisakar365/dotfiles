@@ -1,22 +1,22 @@
 #!/bin/bash
 
 datetime(){
-    ~/dotfiles/status/date_time.sh
+    ./status/date_time.sh
 }
 
 wifi(){
-    ~/dotfiles/status/wifi.sh
+    ./status/wifi.sh
 }
 
 battery(){
-    ~/dotfiles/status/battery.sh
+    ./status/battery.sh
 }
 
 vol_perc(){
-    ~/dotfiles/status/vol_perc.sh
+    ./status/vol_perc.sh
 }
 
 while :; do
-    xsetroot -name "    $(datetime) | $(vol_perc) | $(wifi) | $(battery)"
+    xsetroot -name "$(datetime)|$(vol_perc)|$(wifi)|$(battery)"
     sleep 1
 done

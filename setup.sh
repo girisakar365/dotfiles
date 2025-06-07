@@ -6,9 +6,12 @@ echo gestures config file moved!
 sudo cp conf/libinput-gestures.conf /etc/
 
 echo Installing default pkgs:
-sudo pacman -S --needed ttf-dejavu ttf-noto-nerd libxft libxinerama feh xdotool wmctrl brightnessctl upower
+sudo pacman -S --needed libxft libxinerama feh xdotool wmctrl brightnessctl upower iw
 sudo pacman -S --needed --sync flameshot
 sudo pacman -S --needed firefox git unzip wget
+
+echo installing fonts
+sudo pacman -S --needed nerd-fonts
 
 echo Installing yay:
 mkdir -p ~/Downloads
@@ -17,10 +20,10 @@ git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
 cd ../..
-yay -S --needed visual-studio-code-bin
-yay -S --needed nerd-fonts-jetbrains-mono
-yay -S --needed nerd-fonts-hack
-yay -S --needed nerd-fonts-ubuntu-mono
+rm -r yay
+
+echo Installing through yay
+yay -S --needed visual-studio-code-bin 
 
 echo Making suckless softwares:
 cd dwm

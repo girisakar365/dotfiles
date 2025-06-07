@@ -6,8 +6,8 @@ state=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -o "\[MUTED\]")
 
 # Display the volume percentage correctly
 if [ "$state" = "[MUTED]" ]; then
-    icon=""
+    icon=""
 else
-    icon=""
+    icon="Vol"
 fi
 echo "$icon : ${volume}%"
