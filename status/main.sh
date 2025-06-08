@@ -1,19 +1,19 @@
 #!/bin/bash
 
 datetime(){
-    ./status/date_time.sh
+    $HOME/dotfiles/status/date_time.sh
 }
 
 wifi(){
-    ./status/wifi.sh
+    $HOME/dotfiles/status/wifi.sh
 }
 
 battery(){
-    ./status/battery.sh
+    $HOME/dotfiles/status/battery.sh
 }
 
 vol_perc(){
-    ./status/vol_perc.sh
+    $HOME/dotfiles/status/vol_perc.sh
 }
 
 while :; do

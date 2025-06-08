@@ -10,4 +10,4 @@ if [ "$state" = "[MUTED]" ]; then
 else
     icon="Vol"
 fi
-echo "$icon : ${volume}%"
+echo " $icon : ${volume}% "

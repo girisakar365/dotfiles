@@ -26,4 +26,4 @@ else
     BAT=""
 fi
 # Output in format suitable for slstatus
-echo "$BAT : $PERCENT% $ICON "
+echo " $BAT : $PERCENT% $ICON "

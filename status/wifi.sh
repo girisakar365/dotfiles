@@ -6,4 +6,4 @@ speed=$(iw dev "$(iw dev | awk '$1=="Interface"{print $2}')" link | awk '/tx bit
 # Get signal strength as before
 signal=$(nmcli -g IN-USE,SIGNAL dev wifi | grep '*' | awk -F: '{print $2}')
 
-echo "  : ${signal}% - ${speed}"
+echo "   : ${signal}% - ${speed} "
