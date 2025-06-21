@@ -84,13 +84,13 @@ static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	
 	// spwan
-	{ MODKEY, 						XK_1, 	   spawn,	   SHCMD("st -e ranger")}, 
+	{ MODKEY, 						XK_1, 	   spawn,	   SHCMD("thunar")}, 
 	{ MODKEY, 						XK_2, 	   spawn,	   SHCMD("firefox")}, 
 	{ MODKEY, 						XK_3, 	   spawn,	   SHCMD("code")}, 
 	{ MODKEY, 						XK_s, 	   spawn,	   {.v = dmenucmd} }, 
 	{ MODKEY|ShiftMask,				XK_s,  	   spawn,      SHCMD("flameshot gui") },
 	{ MODKEY,            			XK_Return, spawn,      {.v = termcmd } },
-	{ MODKEY, 						XK_e, 	   spawn,	   SHCMD("st -e ranger")}, 
+	{ MODKEY, 						XK_e, 	   spawn,	   SHCMD("thunar")}, 
 	{ MODKEY, 						XK_b, 	   spawn,	   SHCMD("firefox")}, 
 	{ MODKEY, 						XK_c, 	   spawn,	   SHCMD("code")},
 	{ MODKEY, 						XK_i, 	   spawn,	   SHCMD("st -e btop")},
